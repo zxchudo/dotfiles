@@ -1,0 +1,122 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK SC", "Noto Sans CJK JP", "Roboto", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    border-radius: 14px;
+}
+
+#workspaces,
+#window,
+#battery,
+#custom-lock,
+#custom-random-wallpaper,
+#group-window,
+#clock,
+#datetime-power {
+    background-color: black;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 4px 5px;
+    color: white;
+}
+#wlr-taskbar {
+    background-color: black;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 4px 5px;
+    color: white;
+}
+
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    background-color: black;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 1px;
+    color: white;
+}
+#workspaces button:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#window {
+    color: white;
+    font-weight: 500;
+}
+
+#battery {
+    color: rgba(224, 176, 255, 0.5);
+}
+/*
+#battery.critical,
+#battery.warning {
+    color: rgba(224, 176, 255, 0.5);
+}
+
+#battery.critical {
+    animation: blink 1s linear infinite alternate;
+}
+*/
+@keyframes blink {
+    to {
+        opacity: 0.5;
+    }
+}
+
+#group-window #pulseaudio {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 8px 0 0;
+    color: inherit;
+}
+
+
+#datetime-power #clock {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 8px 0 0;
+    color: inherit;
+}
+
+#datetime-power #custom-power {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+}
+
+#group-work-clock {
+    padding: 0;
+}
+
+#clock {
+    background-color: black;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 4px 5px;
+    color: white;
+}
+tooltip {
+    background-color: black;
+    border: 1px solid rgba(137, 180, 250, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+}
+
+tooltip label {
+    color: white;
+}

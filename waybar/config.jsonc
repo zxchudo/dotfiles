@@ -1,0 +1,133 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 5,
+    "margin-top": 5,
+    "output": "DP-3",
+
+     
+    "modules-left": ["group/window"],
+    "modules-center": ["clock", "hyprland/workspaces"], 
+    "modules-right": ["group/datetime-power"], 
+
+
+    "group/window": {
+        "orientation": "horizontal",
+        "modules": ["pulseaudio", "custom/hyprland-window"]
+    },
+
+
+    "group/datetime-power": {
+        "orientation": "horizontal",
+        "modules": ["wlr/taskbar", "custom/power"]
+    },
+
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一", "2": "二", "3": "三", "4": "四", "5": "五",
+            "6": "六", "7": "七", "8": "八", "9": "九", "10": "十",
+            "urgent": "!",
+            "focused": "●",
+            "default": ""
+        }
+    },
+
+    "clock": {
+        "on-click": "",
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 0.5,
+        "max-volume": 150,
+        "states": {
+            "warning": 30,
+            "normal": 89,
+            "critical": 150
+        },
+        "format": "   ",
+        "format-icons": {
+            "default": ["   ", "   ", "   ", "   ", "   ","   ","   ", "   ", "   "]
+        },
+        "format-muted": "",
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+
+    "custom/power": {
+        "format": " 󰐥 ",
+        "tooltip": "Power Menu",
+        "on-click": "eww open pwrmnu"
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 16,
+        "icon-theme": "Papirus",
+        "tooltip": true,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "active-first": true,
+        "all-outputs": true,
+        "app-ids-exclude": [
+            "waybar"
+        ],
+        "ignore-list": [
+            "waybar",
+            "Alacritty",
+            "kitty",
+            "foot",
+            "Gnome-terminal",
+            "org.gnome.Terminal",
+            "io.elementary.Terminal",
+            "Code",
+            "code-oss",
+            "geany",
+            "atom",
+            "Thunar",
+            "nautilus",
+            "dolphin",
+            "org.gnome.Nautilus",
+            "org.kde.dolphin",
+            "Gnome-control-center",
+            "org.kde.plasma.SystemSettings",
+            "pavucontrol",
+            "nm-connection-editor",
+            "blueman-manager",
+            "wlogout",
+            "imv",
+            "Gimp",
+            "Inkscape",
+            "TelegramDesktop",
+            "discord",
+            "Slack",
+            "gnome-text-editor"
+        ]
+    },
+    
+    
+
+
+    "custom/hyprland-window": {
+        "exec": "playerctl metadata -f '{{ artist }} - {{ trunc(title, 25) }}'",
+        "exec-if": "playerctl status 2>/dev/null",
+        "interval": 2,
+        "tooltip": true,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "format": "{text} {icon}",
+        "format-icons": {
+            "Playing": "  ",
+            "Paused": " ",
+            "default": ""
+        }
+    }
+}
