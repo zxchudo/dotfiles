@@ -2,21 +2,22 @@
     "layer": "top",
     "position": "top",
     "height": 40,
-    "spacing": 5,
+    "spacing": 100,
     "margin-top": 5,
     "output": "DP-3",
 
      
-    "modules-left": ["group/window"],
+   // "modules-left": ["group/window"], 
+    "modules-left": ["pulseaudio", "custom/hyprland-window"], 
     "modules-center": ["clock", "hyprland/workspaces"], 
     "modules-right": ["group/datetime-power"], 
 
-
+/*
     "group/window": {
         "orientation": "horizontal",
         "modules": ["pulseaudio", "custom/hyprland-window"]
     },
-
+*/
 
     "group/datetime-power": {
         "orientation": "horizontal",
@@ -24,26 +25,7 @@
     },
 
 
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-            "1": "一", "2": "二", "3": "三", "4": "四", "5": "五",
-            "6": "六", "7": "七", "8": "八", "9": "九", "10": "十",
-            "urgent": "!",
-            "focused": "●",
-            "default": ""
-        }
-    },
-
-    "clock": {
-        "on-click": "",
-        "format": "{:%I:%M %p}",
-        "format-alt": "{:%d-%m-%Y}"
-    },
-
-    "pulseaudio": {
+  /*  "pulseaudio": {
         "scroll-step": 0.5,
         "max-volume": 150,
         "states": {
@@ -58,7 +40,63 @@
         "format-muted": "",
         "on-click": "pavucontrol",
         "tooltip": false
+    }, */
+
+
+        // Pulseaudio
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}",
+        "on-click": "wiremix",
+        "on-click-right": "pamixer -t",
+        "tooltip-format": "Playizng at {volume}%",
+        "format-muted": "",
+        "format-icons": {
+        "default": ["", "", " "]
+        }
     },
+
+
+    "custom/hyprland-window": {
+        "exec": "playerctl metadata -f '{{ artist }} - {{ trunc(title, 25) }}'",
+        "exec-if": "playerctl status 2>/dev/null",
+        "interval": 2,
+        "tooltip": false,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "format": "{icon} {text}",
+        "format-icons": {
+            "Playing": "  ",
+            "Paused": " ",
+            "default": ""
+        }
+    },
+
+    "clock": {
+        "tooltip":"false",
+        "on-click": "",
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一", "2": "二", "3": "三", "4": "四", "5": "五",
+            "6": "六", "7": "七", "8": "八", "9": "九", "10": "十",
+            "urgent": "!",
+            "focused": "●",
+            "default": ""
+        }
+    },
+
+
+
+
+
 
     "custom/power": {
         "format": " 󰐥 ",
@@ -110,24 +148,27 @@
             "Slack",
             "gnome-text-editor"
         ]
-    },
-    
-    
-
-
-    "custom/hyprland-window": {
-        "exec": "playerctl metadata -f '{{ artist }} - {{ trunc(title, 25) }}'",
-        "exec-if": "playerctl status 2>/dev/null",
-        "interval": 2,
-        "tooltip": true,
-        "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
-        "format": "{text} {icon}",
-        "format-icons": {
-            "Playing": "  ",
-            "Paused": " ",
-            "default": ""
-        }
     }
 }
+
+
+
+
+
+
+  /* 
+    //Bluetooth
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "ghostty --class=local.bluetui -e bluetui"
+  },
+
+  
+  
+  
+  
+  
+  */

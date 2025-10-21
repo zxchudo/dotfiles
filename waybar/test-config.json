@@ -7,16 +7,16 @@
     "output": "DP-3",
 
      
-    "modules-left": ["group/window"],
+    "modules-left": ["group/window"], 
     "modules-center": ["clock", "hyprland/workspaces"], 
     "modules-right": ["group/datetime-power"], 
 
-
+/*
     "group/window": {
         "orientation": "horizontal",
         "modules": ["pulseaudio", "custom/hyprland-window"]
     },
-
+*/
 
     "group/datetime-power": {
         "orientation": "horizontal",
@@ -57,6 +57,13 @@
         }
     },
 
+    "clock": {
+        "tooltip":"false",
+        "on-click": "",
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -68,12 +75,6 @@
             "focused": "●",
             "default": ""
         }
-    },
-
-    "clock": {
-        "on-click": "",
-        "format": "{:%I:%M %p}",
-        "format-alt": "{:%d-%m-%Y}"
     },
 
     "custom/power": {
