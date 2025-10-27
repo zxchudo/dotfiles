@@ -2,65 +2,55 @@
     "layer": "top",
     "position": "top",
     "height": 40,
-    "spacing": 100,
+    "spacing": 10,
     "margin-top": 5,
     "output": "DP-3",
 
-     
-   // "modules-left": ["group/window"], 
-    "modules-left": ["pulseaudio", "custom/hyprland-window"], 
+    //"modules-left": ["pulseaudio", "custom/hyprland-window"], 
+    "modules-left": ["group/window"],
     "modules-center": ["clock", "hyprland/workspaces"], 
-    "modules-right": ["group/datetime-power"], 
+    "modules-right": ["wlr/taskbar", "group/bluetooth-power"], 
+    // "modules-right": ["wlr/taskbar", "bluetooth-power", "custom/power"], 
 
-/*
     "group/window": {
+        "disable-scroll": true,
         "orientation": "horizontal",
-        "modules": ["pulseaudio", "custom/hyprland-window"]
-    },
-*/
+        "modules": ["pulseaudio", "custom/hyprland-window"],
+        "on-click": "",
+        "on-click-right": "",
+        "on-scroll-up": "",
+        "on-scroll-down": "",
+        "on-scroll-left": "", 
+        "on-scroll-right": "",
+        "on-middle-click": ""
+    }, 
 
-    "group/datetime-power": {
+    "group/bluetooth-power": {
         "orientation": "horizontal",
-        "modules": ["wlr/taskbar", "custom/power"]
+        "modules": [ "bluetooth", "custom/power"],
+        "class": "bluetooth-power-group"
     },
-
-
-  /*  "pulseaudio": {
-        "scroll-step": 0.5,
-        "max-volume": 150,
-        "states": {
-            "warning": 30,
-            "normal": 89,
-            "critical": 150
-        },
-        "format": "   ",
-        "format-icons": {
-            "default": ["   ", "   ", "   ", "   ", "   ","   ","   ", "   ", "   "]
-        },
-        "format-muted": "",
-        "on-click": "pavucontrol",
-        "tooltip": false
-    }, */
-
 
         // Pulseaudio
     "pulseaudio": {
         "scroll-step": 1,
+        "max-volume" : 100,
         "format": "{icon}",
-        "on-click": "wiremix",
+        "on-click": "kitty wiremix",
         "on-click-right": "pamixer -t",
-        "tooltip-format": "Playizng at {volume}%",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "tooltip-format": "Playing at {volume}%",
         "format-muted": "",
         "format-icons": {
-        "default": ["", "", " "]
+        "default": [" ", " ", " "]
         }
     },
-
 
     "custom/hyprland-window": {
         "exec": "playerctl metadata -f '{{ artist }} - {{ trunc(title, 25) }}'",
         "exec-if": "playerctl status 2>/dev/null",
-        "interval": 2,
+        "interval": 5,
         "tooltip": false,
         "on-click": "playerctl play-pause",
         "on-scroll-up": "playerctl next",
@@ -71,7 +61,7 @@
             "Paused": " ",
             "default": ""
         }
-    },
+    }, 
 
     "clock": {
         "tooltip":"false",
@@ -93,26 +83,12 @@
         }
     },
 
-
-
-
-
-
-    "custom/power": {
-        "format": " 󰐥 ",
-        "tooltip": "Power Menu",
-        "on-click": "eww open pwrmnu"
-    },
-
     "wlr/taskbar": {
         "format": "{icon}",
         "icon-size": 16,
         "icon-theme": "Papirus",
-        "tooltip": true,
-        "tooltip-format": "{title}",
+        "tooltip": false,
         "on-click": "activate",
-        "on-click-middle": "close",
-        "active-first": true,
         "all-outputs": true,
         "app-ids-exclude": [
             "waybar"
@@ -125,7 +101,6 @@
             "Gnome-terminal",
             "org.gnome.Terminal",
             "io.elementary.Terminal",
-            "Code",
             "code-oss",
             "geany",
             "atom",
@@ -144,31 +119,27 @@
             "Gimp",
             "Inkscape",
             "TelegramDesktop",
-            "discord",
             "Slack",
             "gnome-text-editor"
         ]
+    },
+    
+    // Bluetooth
+    "bluetooth": {
+        "format": " ",
+        "format-disabled": "󰂲 ",
+        "format-connected": " ",
+        "tooltip-format": "Devices connected: {num_connections}",
+        "on-click": "kitty bluetui",
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "custom/power": {
+        "format": " 󰐥 ",
+        "tooltip": "Power Menu",
+        "on-click": "kitty pwrmnu",
+        "on-scroll-up": "",
+        "on-scroll-down": ""
     }
 }
-
-
-
-
-
-
-  /* 
-    //Bluetooth
-  "bluetooth": {
-    "format": "",
-    "format-disabled": "󰂲",
-    "format-connected": "",
-    "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "ghostty --class=local.bluetui -e bluetui"
-  },
-
-  
-  
-  
-  
-  
-  */
