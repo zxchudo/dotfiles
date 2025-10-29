@@ -6,13 +6,13 @@
     "margin-top": 5,
     "output": "DP-3",
 
-    //"modules-left": ["pulseaudio", "custom/hyprland-window"], 
-    "modules-left": ["group/window"],
+
+    "modules-left": ["group/pulse-window"],
     "modules-center": ["clock", "hyprland/workspaces"], 
     "modules-right": ["wlr/taskbar", "group/bluetooth-power"], 
-    // "modules-right": ["wlr/taskbar", "bluetooth-power", "custom/power"], 
 
-    "group/window": {
+
+    "group/pulse-window": {
         "disable-scroll": true,
         "orientation": "horizontal",
         "modules": ["pulseaudio", "custom/hyprland-window"],
@@ -27,11 +27,11 @@
 
     "group/bluetooth-power": {
         "orientation": "horizontal",
-        "modules": [ "bluetooth", "custom/power"],
+        "modules": ["bluetooth", "custom/power"],
         "class": "bluetooth-power-group"
     },
 
-        // Pulseaudio
+
     "pulseaudio": {
         "scroll-step": 1,
         "max-volume" : 100,
@@ -64,7 +64,7 @@
     }, 
 
     "clock": {
-        "tooltip":"false",
+        "tooltip": false,
         "on-click": "",
         "format": "{:%I:%M %p}",
         "format-alt": "{:%d-%m-%Y}"
@@ -123,12 +123,12 @@
             "gnome-text-editor"
         ]
     },
-    
-    // Bluetooth
+
     "bluetooth": {
-        "format": " ",
-        "format-disabled": "󰂲 ",
-        "format-connected": " ",
+        "format": "  ",
+        "icon-size": 24,
+        "format-disabled": " 󰂲 ",
+        "format-connected": "  ",
         "tooltip-format": "Devices connected: {num_connections}",
         "on-click": "kitty bluetui",
         "on-scroll-up": "",
@@ -137,8 +137,9 @@
 
     "custom/power": {
         "format": " 󰐥 ",
-        "tooltip": "Power Menu",
-        "on-click": "kitty pwrmnu",
+        "icon-size": 24,
+        "tooltip": false,
+        "on-click": "wlogout",
         "on-scroll-up": "",
         "on-scroll-down": ""
     }

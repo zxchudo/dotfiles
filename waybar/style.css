@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK SC", "Noto Sans CJK JP", "Roboto", sans-serif;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK SC", "Noto Sans CJK JP", "Roboto", "sans-serif";
     font-size: 13px;
     min-height: 0;
 }
@@ -11,28 +11,71 @@ window#waybar {
     border-radius: 14px;
 }
 
-#workspaces,
-#window,
-#battery,
-#custom-lock,
-#custom-random-wallpaper,
-#group-window,
+#pulse-window,
 #clock,
-#datetime-power {
+#workspaces,
+#taskbar,
+#bluetooth-power
+{
     background-color: black;
     border-radius: 10px;
     padding: 0 10px;
-    margin: 4px 5px;
+    margin: 4px 10px 4px -4px ;
     color: white;
+    min-height: 24px;
 }
-#wlr-taskbar {
+
+
+#pulse-window {
+    font-weight: 500;
+    margin: 4px 0px 4px 10px;
+}
+
+#pulse-window > * {
+    margin: 0 2px;
+    padding: 0 0 2px 0;
+}
+
+
+#bluetooth-power {
     background-color: black;
     border-radius: 10px;
-    padding: 0 10px;
-    margin: 4px 5px;
+    padding: 0 4px;
     color: white;
 }
 
+#bluetooth-power * {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+} 
+
+
+/*        TASKBAR        */
+#taskbar {
+    padding: 0 4px;
+    margin: 4px 0px 4px 0px;
+}
+
+#taskbar button {
+    transition: all 0.2s ease-in-out;
+}
+
+#taskbar button:hover {
+    background: transparent;
+    border-radius: 40%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+#taskbar button.active {
+    border-bottom: 2px solid white;
+    background: transparent;
+}
+
+
+/*          WORKSPACES          */
 #workspaces {
     padding: 0 4px;
 }
@@ -44,71 +87,21 @@ window#waybar {
     margin: 1px;
     color: white;
 }
+
 #workspaces button:hover {
     color: black;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#window {
-    color: white;
-    font-weight: 500;
-}
 
-#battery {
-    color: rgba(224, 176, 255, 0.5);
-}
-/*
-#battery.critical,
-#battery.warning {
-    color: rgba(224, 176, 255, 0.5);
-}
-
-#battery.critical {
-    animation: blink 1s linear infinite alternate;
-}
-*/
 @keyframes blink {
     to {
         opacity: 0.5;
     }
 }
 
-#group-window #pulseaudio {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0 8px 0 0;
-    color: inherit;
-}
 
-
-#datetime-power #clock {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0 8px 0 0;
-    color: inherit;
-}
-
-#datetime-power #custom-power {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    color: inherit;
-}
-
-#group-work-clock {
-    padding: 0;
-}
-
-#clock {
-    background-color: black;
-    border-radius: 10px;
-    padding: 0 10px;
-    margin: 4px 5px;
-    color: white;
-}
 tooltip {
     background-color: black;
     border: 1px solid rgba(137, 180, 250, 0.3);
