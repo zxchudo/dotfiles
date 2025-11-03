@@ -52,7 +52,6 @@ window#waybar {
     margin: 0;
 } 
 
-
 /*        TASKBAR        */
 #taskbar {
     padding: 0 4px;
@@ -74,10 +73,15 @@ window#waybar {
     background: transparent;
 }
 
+#clock{
+    padding: 4px 6px;
+    min-width: 70px;
+    margin: 4px 0px 4px 0px;
+}
 
 /*          WORKSPACES          */
 #workspaces {
-    padding: 0 4px;
+    padding: 0 0px;
 }
 
 #workspaces button {
